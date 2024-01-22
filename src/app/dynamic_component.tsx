@@ -12,6 +12,7 @@ export const DynamicComponent: React.FC = async () => {
   const data: Schema = await fetch("http://date.jsontest.com/").then(
     (response) => response.json(),
   );
+  await new Promise((r) => setTimeout(r, 1000));
 
   return (
     <div>
