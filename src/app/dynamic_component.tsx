@@ -7,12 +7,15 @@ const Schema = v.object({
   time: v.string(),
 });
 type Schema = v.Output<typeof Schema>;
-export const DynamicComponent: React.FC = async () => {
+type Props = {
+  ms: number;
+};
+export const DynamicComponent: React.FC<Props> = async ({ ms }) => {
   noStore();
   const data: Schema = await fetch("http://date.jsontest.com/").then(
     (response) => response.json(),
   );
-  await new Promise((r) => setTimeout(r, 1000));
+  await new Promise((r) => setTimeout(r, ms));
 
   return (
     <div>

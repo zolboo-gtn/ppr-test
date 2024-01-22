@@ -10,11 +10,29 @@ const HomePage: React.FC = async () => {
       <Suspense
         fallback={
           <div>
-            <div>dynamic:</div>
+            <div>dynamic1:</div>
           </div>
         }
       >
-        <DynamicComponent />
+        <DynamicComponent ms={1000} />
+      </Suspense>
+      <Suspense
+        fallback={
+          <div>
+            <div>dynamic2:</div>
+          </div>
+        }
+      >
+        <DynamicComponent ms={2000} />
+      </Suspense>
+      <Suspense
+        fallback={
+          <div>
+            <div>dynamic3:</div>
+          </div>
+        }
+      >
+        <DynamicComponent ms={3000} />
       </Suspense>
     </main>
   );
